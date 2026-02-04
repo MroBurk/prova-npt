@@ -2,37 +2,29 @@ name: Build Electron EXE
 on:
   push:
     branches:
-      - main  # Si attiva ogni volta che carichi modifiche su main
+      - main
 
 jobs:
   release:
     runs-on: windows-latest
-    
-    # IMPORTANTE: se la tua app è in una sottocartella, aggiungi questa riga:
-    # defaults:
-    #   run:
-    #     working-directory: v15-tinnutri
-
+    defaults:
+      run:
+        working-directory: v15-tinnutri 
     steps:
       - name: Checkout code
-        uses: actions/checkout@v3
-
+        uses: actions/checkout@v4
       - name: Install Node.js
-        uses: actions/setup-node@v3
+        uses: actions/setup-node@v4
         with:
           node-version: 20
-
       - name: Install dependencies
-        # Entra nella cartella corretta (se necessario) e installa
         run: npm install
-
-     - name: Build and Package
+      - name: Build and Package
         run: npm run electron:build
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-
       - name: Upload Artifacts
         uses: actions/upload-artifact@v4
         with:
           name: MiaAppPortatile
-          path: v15-tinnutri/dist_electron/*.exe
+          path: v15-tinnutri/release/*.exe
