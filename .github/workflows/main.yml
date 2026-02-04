@@ -7,24 +7,28 @@ on:
 jobs:
   release:
     runs-on: windows-latest
-    defaults:
-      run:
-        working-directory: v15-tinnutri 
+    
+    # RIMOSSO: working-directory: v15-tinnutri (perché i file sono fuori)
+
     steps:
       - name: Checkout code
         uses: actions/checkout@v4
+
       - name: Install Node.js
         uses: actions/setup-node@v4
         with:
           node-version: 20
+
       - name: Install dependencies
         run: npm install
+
       - name: Build and Package
         run: npm run electron:build
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+
       - name: Upload Artifacts
         uses: actions/upload-artifact@v4
         with:
           name: MiaAppPortatile
-          path: v15-tinnutri/release/*.exe
+          path: dist_electron/*.exe  # Anche qui rimosso il prefisso della cartella
