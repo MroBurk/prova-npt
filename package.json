@@ -22,7 +22,7 @@
       "output": "release"
     },
     "win": {
-      "target": "nsis",
+      "target": "PORTABLE",
       "icon": "public/favicon.ico"
     }
   },
