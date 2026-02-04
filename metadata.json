@@ -1,0 +1,5 @@
+{
+  "name": "v15 TinNutri",
+  "description": "Dashboard clinica per il calcolo e l'archiviazione di schede di nutrizione parenterale con calcolatore di mix glucosio.",
+  "requestFramePermissions": []
+}
