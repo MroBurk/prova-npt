@@ -26,15 +26,13 @@ jobs:
         # Entra nella cartella corretta (se necessario) e installa
         run: npm install
 
-      - name: Build and Package
-        # Questo lancia il tuo script "vite build && electron-builder"
+     - name: Build and Package
         run: npm run electron:build
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 
       - name: Upload Artifacts
-        # Questo salva il file exe così puoi scaricarlo anche se la release fallisce
         uses: actions/upload-artifact@v4
         with:
-          name: windows-portable-exe
-          path: v15-tinnutri/release/*.exe  # Cercherà comunque il file .exe nella cartella release
+          name: MiaAppPortatile
+          path: v15-tinnutri/dist_electron/*.exe
