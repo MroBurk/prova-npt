@@ -36,5 +36,5 @@ jobs:
         # Questo salva il file exe così puoi scaricarlo anche se la release fallisce
         uses: actions/upload-artifact@v4
         with:
-          name: windows-exe
-          path: release/*.exe
+          name: windows-portable-exe
+          path: v15-tinnutri/release/*.exe  # Cercherà comunque il file .exe nella cartella release
