@@ -22,7 +22,7 @@
       "output": "release"
     },
     "win": {
-      "target": "PORTABLE",
+      "target": "portable",
       "icon": "public/favicon.ico"
     }
   },
